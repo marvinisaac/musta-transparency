@@ -3,7 +3,7 @@ title: Musta Privacy Policy
 description: How the Musta website collects, uses, and processes information when you visit.
 ---
 
-**Last updated: October 16, 2026**
+**Last updated: October 21, 2026**
 
 ## 1. Introduction
 
@@ -75,11 +75,20 @@ The current website does not require visitors to create an account or provide pe
 
 If you voluntarily contact the developer through an available communication channel, the information you provide may be processed to respond to your inquiry.
 
+### 2.5. Invitation Requests
+
+You may voluntarily ask to be invited to Musta by submitting your email address through the "Request for an early invite" form on the home page. Providing it is optional. The rest of the website works without it.
+
+Your email address is encrypted in your browser, before it leaves your device, so only that encrypted form is ever sent. The server receives, validates, and stores ciphertext. It never sees your email address, and no key capable of opening it exists on the server.
+
+Those encrypted addresses can be decrypted only by the developer, only in the developer's own browser, and only to check the list before the actual invitations are sent. Once those invitations have gone out, the stored encrypted addresses are deleted.
+
 ## 3. How We Use Information
 
 Information processed through the website is used for the following purposes:
 
 - **Communication:** Respond to inquiries that visitors voluntarily submit.
+- **Invitations:** Check voluntary invitation requests before invitations are sent in the future.
 - **Error diagnosis:** Identify, investigate, and resolve bugs and technical failures.
 - **Reliability and security:** Maintain the website and investigate technical problems.
 - **Website improvement:** Understand which pages and content are useful to visitors.
@@ -133,6 +142,8 @@ Analytics and diagnostic information is retained only as needed for the purposes
 Retention periods may differ between Umami, Sentry, Cloudflare, and the underlying hosting infrastructure.
 
 For self-hosted Umami, retention depends on the developer's database, backup, and deletion practices. Sentry and Cloudflare data retention is subject to their applicable service settings, terms, and policies.
+
+Encrypted invitation requests are retained only until the invitations they were collected for have been sent, and are deleted afterwards.
 
 Musta aims to avoid retaining personal information longer than necessary for the purposes for which it is processed.
 
