@@ -3,7 +3,7 @@ title: Musta Privacy Policy
 description: How the Musta website collects, uses, and processes information when you visit.
 ---
 
-**Last updated: October 22, 2026**
+**Last updated: October 27, 2026**
 
 ## 1. Introduction
 
@@ -81,14 +81,22 @@ You may voluntarily join the Musta waitlist by submitting your email address thr
 
 Your email address is encrypted in your browser, before it leaves your device, so only that encrypted form is ever sent. The server receives, validates, and stores ciphertext. It never sees your email address, and no key capable of opening it exists on the server.
 
-Those encrypted addresses can be decrypted only by the developer, only in the developer's own browser, and only to check the list before the actual invitations are sent. Once those invitations have gone out, the stored encrypted addresses are deleted.
+Those encrypted addresses can be decrypted only by the developer, only in the developer's own browser, and only to check the list before the actual invitations are sent. Once an invitation has been used to create an account, the waitlist entry it came from is deleted. An invitation the developer revokes without being used does not delete the entry so it can be invited again later.
+
+### 2.6. Accounts
+
+If you receive an invitation, you can create a Musta account with your email address and a passphrase of your choosing. Providing your email address is required to create the account; the passphrase stays on your device.
+
+Your passphrase never reaches the server: your browser derives everything the server receives from it, so the server stores only a verifier, an encrypted copy of your email address, and a lookup index derived from it (a keyed value that lets the server find and compare addresses without reading them). Both the encrypted copy and the index are protected by dedicated keys that the server holds; neither can be turned back into your address without them.
+
+The account site also keeps a small vault in your browser's storage on your own device. Every entry in it is encrypted to your key, and the keys themselves are never stored — a device without your passphrase can only see ciphertext. If you forget your passphrase, your account and its encrypted data cannot be recovered.
 
 ## 3. How We Use Information
 
 Information processed through the website is used for the following purposes:
 
 - **Communication:** Respond to inquiries that visitors voluntarily submit.
-- **Waitlist:** Check voluntary waitlist sign-ups before invitations are sent in the future.
+- **Waitlist and invitations:** Check voluntary waitlist sign-ups, send invitations, and create accounts for the people who use them.
 - **Error diagnosis:** Identify, investigate, and resolve bugs and technical failures.
 - **Reliability and security:** Maintain the website and investigate technical problems.
 - **Website improvement:** Understand which pages and content are useful to visitors.
@@ -125,6 +133,12 @@ Information processed by Sentry is subject to its applicable service terms, priv
 
 Privacy information: [https://sentry.io/privacy/](https://sentry.io/privacy/)
 
+### 4.4. Email Delivery
+
+Invitation emails are delivered through a mail provider. The provider necessarily processes the invited person's email address and the invitation link in order to deliver the message. Invitations contain no other personal information.
+
+Privacy information: the provider's own privacy policy, once an invitation provider is configured for production.
+
 ## 5. Cookies and Similar Technologies
 
 Musta's current Umami analytics configuration uses the standard tracker without custom events and is designed to operate without cookies.
@@ -143,7 +157,9 @@ Retention periods may differ between Umami, Sentry, Cloudflare, and the underlyi
 
 For self-hosted Umami, retention depends on the developer's database, backup, and deletion practices. Sentry and Cloudflare data retention is subject to their applicable service settings, terms, and policies.
 
-Encrypted waitlist sign-ups are retained only until the invitations they were collected for have been sent, and are deleted afterwards.
+Encrypted waitlist sign-ups are retained only until the invitation they were collected for has been used to create an account, and are deleted at that point.
+
+Account email addresses are retained for as long as the account exists: as an encrypted copy and as a lookup index, protected by dedicated keys.
 
 Musta aims to avoid retaining personal information longer than necessary for the purposes for which it is processed.
 
