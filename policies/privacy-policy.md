@@ -3,7 +3,7 @@ title: Musta Privacy Policy
 description: How the Musta website collects, uses, and processes information when you visit.
 ---
 
-**Last updated: October 27, 2026**
+**Last updated: November 2, 2026**
 
 ## 1. Introduction
 
@@ -21,49 +21,26 @@ This policy describes the website's current data-handling practices. It will be 
 
 ### 2.1. Hosting and Technical Information
 
-Musta's frontend is hosted on Cloudflare Pages. When visitors access the website, Cloudflare may process technical information necessary to deliver, secure, and operate the service.
-
-Depending on the services and configuration in use, this information may include IP addresses, request metadata, and security-related information.
-
-Cloudflare's processing of this information is separate from the analytics collected by Umami and the diagnostic information sent to Sentry.
+Musta's frontend is hosted on Cloudflare Pages. When visitors access the website, Cloudflare may process technical information necessary to deliver, secure, and operate the service, such as IP addresses, request metadata, and security-related information. This is separate from the analytics collected by Umami and the diagnostic information sent to Sentry.
 
 For more information, see the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
 ### 2.2. Error Tracking and Diagnostics
 
-Musta uses Sentry's hosted service to identify, investigate, and resolve technical errors.
-
-When an error occurs, Sentry may receive diagnostic information such as:
-
-- Error messages, exception details, and stack traces.
-- Browser, operating system, and application environment information.
-- The page or URL associated with the error.
-- Technical context and diagnostic events associated with the error.
-
-Depending on the circumstances, diagnostic reports may inadvertently contain personal information. For example, an error associated with a URL containing query parameters could expose information included in that URL.
-
-Sentry's account-wide data-scrubbing features are enabled to reduce the transmission and retention of sensitive information. However, scrubbing cannot guarantee that every report is free of personal information.
-
-Sentry is used to maintain the reliability and security of the website, not to monitor visitors for advertising purposes.
+Musta uses Sentry's hosted service to identify, investigate, and resolve technical errors. When an error occurs, Sentry may receive diagnostic information such as error messages, stack traces, browser and operating system details, and the page or URL associated with the error. Diagnostic reports may inadvertently contain personal information; data scrubbing is enabled to reduce this, but its complete removal cannot be guaranteed. Sentry is used to maintain the reliability and security of the website, not to monitor visitors for advertising purposes.
 
 For more information, see the [Sentry Privacy Policy](https://sentry.io/privacy/).
 
 ### 2.3. Website Analytics
 
-Musta uses a self-hosted instance of Umami Analytics to understand how visitors use the website and to improve its content and usability.
-
-The current configuration tracks standard website analytics, including page views and associated referral and browser information. Musta does not currently configure custom analytics events.
-
-Depending on the request and configuration, analytics may include:
+Musta uses a self-hosted instance of Umami Analytics to understand how visitors use the website and to improve its content and usability. Depending on the request and configuration, analytics may include:
 
 - Pages visited and page-view counts.
 - Referring websites and traffic sources.
 - Browser type, operating system, and device information.
 - Approximate geographic information derived from visitor IP addresses.
 
-Umami's standard analytics tracker is designed to operate without cookies. Musta does not intentionally use this analytics configuration to track visitors across unrelated websites.
-
-The Umami instance runs on hardware operated by the developer. Analytics data is processed on this infrastructure rather than through Umami's hosted analytics service. The developer may access the analytics data and underlying system for administration, maintenance, and website improvement.
+Umami's standard analytics tracker is designed to operate without cookies, and Musta does not track visitors across unrelated websites. The Umami instance runs on hardware operated by the developer rather than through Umami's hosted analytics service, and the developer may access the analytics data for administration, maintenance, and website improvement.
 
 Musta does not use these analytics for targeted advertising or sell visitors' personal information.
 
@@ -71,9 +48,7 @@ For more information, see the [Umami documentation](https://docs.umami.is/docs/f
 
 ### 2.4. Information You Provide
 
-The current website does not require visitors to create an account or provide personal information to read the development blog.
-
-If you voluntarily contact the developer through an available communication channel, the information you provide may be processed to respond to your inquiry.
+The current website does not require visitors to create an account or provide personal information to read the development blog. If you voluntarily contact the developer through an available communication channel, the information you provide may be processed to respond to your inquiry.
 
 ### 2.5. Waitlist
 
@@ -85,11 +60,13 @@ Those encrypted addresses can be decrypted only by the developer, only in the de
 
 ### 2.6. Accounts
 
-If you receive an invitation, you can create a Musta account with your email address and a passphrase of your choosing. Providing your email address is required to create the account; the passphrase stays on your device.
+If you receive an invitation, you can create a Musta account with your email address and a passphrase of your choosing. Providing your email address is required to create the account; the passphrase stays on your device and never reaches the server.
 
-Your passphrase never reaches the server: your browser derives everything the server receives from it, so the server stores only a verifier, an encrypted copy of your email address, and a lookup index derived from it (a keyed value that lets the server find and compare addresses without reading them). Both the encrypted copy and the index are protected by dedicated keys that the server holds; neither can be turned back into your address without them.
+Everything the server stores about your account — your email address, the entries in your account site's vault, and your profile details (first name, last name and nickname) — is encrypted before it leaves your browser, and the server holds nothing that can decrypt it. Your profile details are additionally stored so that the server cannot even link them to your account.
 
-The account site also keeps a small vault in your browser's storage on your own device. Every entry in it is encrypted to your key, and the keys themselves are never stored — a device without your passphrase can only see ciphertext. If you forget your passphrase, your account and its encrypted data cannot be recovered.
+When you create the account, your browser also generates a **recovery code**: shown to you once, and never sent to the server or written to your device. If you forget your passphrase, recovering asks for **both** secrets, signs out every other device, and gives you a new passphrase and a new recovery code to write down, replacing both. Losing **both** your passphrase and your recovery code means your encrypted data cannot be recovered. Keep them somewhere separate.
+
+Signing in sets session cookies that contain no personal information — no email address, no passphrase, no key. They exist only so that a session can be renewed and ended, they are removed when you sign out, and they expire at most fourteen days after the sign-in.
 
 ## 3. How We Use Information
 
@@ -101,69 +78,29 @@ Information processed through the website is used for the following purposes:
 - **Reliability and security:** Maintain the website and investigate technical problems.
 - **Website improvement:** Understand which pages and content are useful to visitors.
 
+Invitation emails are delivered through a mail provider, which necessarily processes the invited person's email address and the invitation link in order to deliver the message. Invitations contain no other personal information.
+
 Musta does not sell visitors' personal information or use the analytics and error-tracking tools described in this policy for targeted advertising.
 
-## 4. Third-Party Services and Infrastructure
+## 4. Cookies and Similar Technologies
 
-Musta relies on the following services and infrastructure to operate the current website.
+The account site uses session cookies when you are signed in. They hold no personal information, are removed when you sign out, and expire at most fourteen days after the sign-in; they exist only so that a session can be renewed and ended, and are not used for analytics, advertising or any form of tracking.
 
-### 4.1. Cloudflare Pages
+Umami's standard analytics tracker is designed to operate without cookies. Cloudflare Pages and other infrastructure may use cookies or other storage technologies as needed for service delivery and security, depending on the services enabled.
 
-Cloudflare Pages hosts Musta's frontend. Cloudflare may process technical information required to deliver, secure, and operate the website.
+## 5. Data Retention
 
-The information processed, applicable retention periods, and processing locations depend on the services and configuration in use.
-
-Privacy information: [https://www.cloudflare.com/privacypolicy/](https://www.cloudflare.com/privacypolicy/)
-
-These services and infrastructure may process information in different jurisdictions. Their applicable service terms and privacy practices govern their respective processing activities.
-
-### 4.2. Umami Analytics
-
-Umami is self-hosted on hardware operated by the developer. Website analytics are processed on this infrastructure rather than through Umami's hosted analytics service.
-
-The developer may access analytics data and associated system records for administration, maintenance, and website improvement.
-
-### 4.3. Sentry
-
-Sentry provides hosted error tracking and diagnostic services. Relevant diagnostic information may be transmitted to and processed by Sentry when errors occur.
-
-Sentry's data-scrubbing features are enabled to reduce the transmission and retention of sensitive information. However, complete removal of personal information cannot be guaranteed.
-
-Information processed by Sentry is subject to its applicable service terms, privacy policy, and data-processing arrangements.
-
-Privacy information: [https://sentry.io/privacy/](https://sentry.io/privacy/)
-
-### 4.4. Email Delivery
-
-Invitation emails are delivered through a mail provider. The provider necessarily processes the invited person's email address and the invitation link in order to deliver the message. Invitations contain no other personal information.
-
-Privacy information: the provider's own privacy policy, once an invitation provider is configured for production.
-
-## 5. Cookies and Similar Technologies
-
-Musta's current Umami analytics configuration uses the standard tracker without custom events and is designed to operate without cookies.
-
-Cloudflare Pages and other infrastructure may process technical information for service delivery and security. Whether cookies or other storage technologies are used depends on the services enabled and the website's actual configuration.
-
-Musta does not intentionally use the analytics configuration described in this policy for cross-site advertising tracking.
-
-If Musta introduces additional tracking technologies or services that materially change how visitor information is collected, this policy will be updated accordingly.
-
-## 6. Data Retention
-
-Analytics and diagnostic information is retained only as needed for the purposes described in this policy, subject to applicable service settings and legal requirements.
-
-Retention periods may differ between Umami, Sentry, Cloudflare, and the underlying hosting infrastructure.
-
-For self-hosted Umami, retention depends on the developer's database, backup, and deletion practices. Sentry and Cloudflare data retention is subject to their applicable service settings, terms, and policies.
+Analytics and diagnostic information is retained only as needed for the purposes described in this policy, subject to applicable service settings and legal requirements. For self-hosted Umami, retention depends on the developer's database, backup, and deletion practices; Sentry and Cloudflare data retention is subject to their applicable service settings, terms, and policies.
 
 Encrypted waitlist sign-ups are retained only until the invitation they were collected for has been used to create an account, and are deleted at that point.
 
-Account email addresses are retained for as long as the account exists: as an encrypted copy and as a lookup index, protected by dedicated keys.
+Account information — your email address, vault entries, and profile details — is retained for as long as the account exists, stored encrypted and unreadable to the server.
+
+A signed-in session is kept for at most fourteen days from the sign-in, and for less when you sign out; the cookies that carry it are removed at sign out.
 
 Musta aims to avoid retaining personal information longer than necessary for the purposes for which it is processed.
 
-## 7. Data Security
+## 6. Data Security
 
 Musta aims to minimize the information collected and apply reasonable safeguards to protect it against unauthorized access, disclosure, alteration, or destruction.
 
@@ -177,7 +114,7 @@ These safeguards may include:
 
 However, no website, service, or method of electronic storage or transmission can be guaranteed to be completely secure.
 
-## 8. Your Privacy Rights
+## 7. Your Privacy Rights
 
 Depending on your location and the applicable law, you may have rights concerning your personal information, including the right to:
 
@@ -192,15 +129,15 @@ If you are in the Philippines, these rights may arise under the Data Privacy Act
 
 Because the current website primarily processes analytics and technical diagnostic data, identifying and retrieving information associated with a particular visitor may be limited by the nature of the data collected.
 
-To submit a privacy-related inquiry or request, contact the developer using the contact information provided in Section 10.
+To submit a privacy-related inquiry or request, contact the developer using the contact information provided in Section 9.
 
-## 9. Changes to This Policy
+## 8. Changes to This Policy
 
 This Privacy Policy may be updated as Musta develops, introduces new features, changes service providers, or modifies its data-handling practices.
 
 The latest version will be published on the website with an updated revision date. Visitors should review this page periodically to understand the current practices.
 
-## 10. Contact
+## 9. Contact
 
 For questions, concerns, or requests regarding this Privacy Policy or the processing of information through Musta, contact:
 
